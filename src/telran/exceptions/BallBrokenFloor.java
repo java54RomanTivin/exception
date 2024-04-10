@@ -18,4 +18,4 @@ public class BallBrokenFloor {
 			throw new Exception();
 		}
 	}
-}
+} 
