@@ -19,18 +19,21 @@ class BallBrokenFloorTest {
 
 	private int getMinBrokenFloor(BallBrokenFloor bbf) {
 		int index=1;
-		boolean flag=false;
-		do  {
+		int left= 0;
+		int right= N_FLOORS;
+		int middle= (left+right)/2;
+		 while (left<=right) {
+			
 			try {
-				bbf.checkFloor(index);
-				index++;
-				flag = true;
+				bbf.checkFloor(middle);
+				left=middle+1;
 			} 
 			catch (Exception e){
-			    flag=false;
+				right=middle-1;
 			}
+			middle= (left+right)/2;
 			}
-		while (flag && index<=N_FLOORS);
-	return index > N_FLOORS ?  - 1: index;
+		
+	return left;
 }
 }
